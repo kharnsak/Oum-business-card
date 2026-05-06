@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สุภาพรรณ อาศัยราช</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@800&family=Montserrat:wght@900&family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background: #BEBEBE;
+    }
+
+    .toggle { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .toggle button {
+      padding: 7px 16px;
+      border: 2px solid #fff;
+      border-radius: 99px;
+      background: transparent;
+      color: #fff;
+      font-size: 13px;
+      font-family: sans-serif;
+      cursor: pointer;
+    }
+    .toggle button.active { background: #fff; color: #333; font-weight: bold; }
+
+    .card {
+      container-type: inline-size;
+      width: min(700px, calc(100vw - 32px));
+      aspect-ratio: 85 / 55;
+      background: #FAF8F2;
+      padding: 3.5cqw 5.5cqw 3.5cqw 5.5cqw;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.28);
+    }
+
+    .logo {
+      font-family: var(--logo-font, 'Nunito Sans'), sans-serif;
+      font-weight: 800;
+      font-size: 9cqw;
+      color: #EB0A1E;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+
+    .name-block { margin-top: 9cqw; }
+
+    .full-name {
+      font-family: 'Sarabun', sans-serif;
+      font-size: 6.8cqw;
+      font-weight: 400;
+      color: #181818;
+      line-height: 1.15;
+      margin-bottom: 0.5cqw;
+    }
+
+    .position {
+      font-family: 'Sarabun', sans-serif;
+      font-size: 2.8cqw;
+      font-weight: 400;
+      color: #181818;
+      line-height: 1.45;
+    }
+
+    .company-section { margin-top: 6.5cqw; }
+
+    .company-name {
+      font-family: 'Sarabun', sans-serif;
+      font-size: 2.8cqw;
+      font-weight: 700;
+      color: #181818;
+      line-height: 1.4;
+      margin-bottom: 0.3cqw;
+    }
+
+    .address {
+      font-family: 'Sarabun', sans-serif;
+      font-size: 2.6cqw;
+      font-weight: 400;
+      color: #181818;
+      line-height: 1.48;
+      margin-bottom: 0.3cqw;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2cqw;
+    }
+
+    .contact-item {
+      font-family: 'Sarabun', sans-serif;
+      font-size: 2.6cqw;
+      font-weight: 400;
+      color: #181818;
+      line-height: 1.48;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toggle">
+    <button class="active" onclick="setFont('Nunito Sans', this)">Avenir (Nunito Sans)</button>
+    <button onclick="setFont('Montserrat', this)">Gotham (Montserrat)</button>
+  </div>
+
+  <div class="card">
+    <div class="logo">TOYOTA</div>
+
+    <div class="name-block">
+      <div class="full-name">สุภาพรรณ อาศัยราช</div>
+      <div class="position">ผู้ช่วยผู้จัดการ</div>
+    </div>
+
+    <div class="company-section">
+      <div class="company-name">บริษัท โตโยต้า ออโต้ บอดี้ ประเทศไทย จำกัด</div>
+      <div class="address">
+        186/1 หมู่1 ถนนทางรถไฟเก่า ต.สำโรงใต้ อ.พระประแดง จ.สมุทรปราการ 10130<br>
+        (สำนักงานใหญ่)
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item">TAX ID&nbsp;&nbsp;: 0105521003044</div>
+        <div class="contact-item">สาขาที่ : สำนักงานใหญ่</div>
+        <div class="contact-item">มือถือ&nbsp;&nbsp;&nbsp;: 090-973-9361</div>
+        <div class="contact-item">E-mail&nbsp;&nbsp;: sarsaira@toyota.co.th</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setFont(font, btn) {
+      document.querySelector('.card').style.setProperty('--logo-font', `'${font}'`);
+      document.querySelectorAll('.toggle button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
